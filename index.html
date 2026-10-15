@@ -377,6 +377,7 @@
       var p = audio.play();
       if (p && p.catch) p.catch(function () {
         playBtn.classList.remove('is-loading');
+        if (audio.error) return onError();
         say('Não foi possível tocar o áudio. Tente de novo.', true);
       });
     } else {
@@ -431,6 +432,19 @@
   // O áudio pode ter carregado antes deste script rodar.
   if (audio.readyState >= 1) onMeta();
   if (audio.error) onError();
+
+  // Alguns navegadores só carregam o áudio no primeiro toque; esta checagem
+  // mostra o aviso "em breve" logo ao abrir, se o MP3 ainda não foi publicado.
+  if (window.fetch) {
+    fetch(audio.getAttribute('src'), { method: 'HEAD', cache: 'no-store' })
+      .then(function (r) {
+        if (r.status === 404) {
+          playBtn.disabled = true;
+          say('A narração estará disponível em breve.');
+        }
+      })
+      .catch(function () {});
+  }
   audio.addEventListener('timeupdate', function () { render(); save(false); });
   audio.addEventListener('play', function () {
     playBtn.classList.add('is-playing');
