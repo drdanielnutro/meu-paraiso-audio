@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Meu Paraíso · Narração</title>
+<meta name="description" content="Ouça a narração do livro Meu Paraíso.">
+<!-- Prévia ao compartilhar o link (WhatsApp, iMessage etc.) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Meu Paraíso · Narração">
+<meta property="og:description" content="Ouça a narração do livro Meu Paraíso.">
+<meta property="og:url" content="https://drdanielnutro.github.io/meu-paraiso-audio/">
+<meta property="og:image" content="https://drdanielnutro.github.io/meu-paraiso-audio/capa.jpg">
+<meta property="og:locale" content="pt_BR">
+<link rel="apple-touch-icon" href="capa.jpg">
+<meta name="theme-color" content="#f6efe4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1d1916" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23c8643b'/%3E%3Cpath d='M26 20l20 12-20 12z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fontes carregadas sem travar a página; se a internet estiver lenta, usa as fontes do aparelho. -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<style>
+  :root {
+    --bg: #f6efe4;
+    --card: #fffaf2;
+    --ink: #3a2f28;
+    --muted: #7a6a5d;
+    --accent: #c8643b;
+    --accent-ink: #ffffff;
+    --track: #eadfce;
+    --ring: rgba(200, 100, 59, .35);
+    --sun: #f2b45a;
+    --hill-1: #9cbf8a;
+    --hill-2: #6f9c6a;
+    --sky: #fbe7cf;
+    --shadow: 0 18px 50px -24px rgba(90, 60, 30, .35);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1d1916;
+      --card: #27211d;
+      --ink: #f3e9dc;
+      --muted: #b4a594;
+      --accent: #e58a5f;
+      --accent-ink: #1d1916;
+      --track: #3d342d;
+      --ring: rgba(229, 138, 95, .45);
+      --sun: #e9a64b;
+      --hill-1: #557a52;
+      --hill-2: #3e5d3e;
+      --sky: #332a24;
+      --shadow: 0 18px 50px -24px rgba(0, 0, 0, .7);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: grid;
+    place-items: center;
+    padding: 24px 16px calc(24px + env(safe-area-inset-bottom));
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .player {
+    width: 100%;
+    max-width: 400px;
+    background: var(--card);
+    border-radius: 28px;
+    padding: 20px 20px 28px;
+    box-shadow: var(--shadow);
+    text-align: center;
+  }
+
+  .cover {
+    position: relative;
+    margin: 0 0 22px;
+    aspect-ratio: 1 / 1;
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--sky);
+  }
+  .cover svg {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    display: block;
+  }
+  /* Foto da capa: fica invisível até carregar; depois aparece inteira, na proporção original. */
+  .cover-photo {
+    position: absolute;
+    opacity: 0;
+    width: 1px; height: 1px;
+  }
+  .cover.has-photo {
+    aspect-ratio: auto;
+    overflow: visible;
+    background: none;
+    border-radius: 0;
+    display: flex;
+    justify-content: center;
+  }
+  .cover.has-photo svg { display: none; }
+  .cover.has-photo .cover-photo {
+    position: static;
+    opacity: 1;
+    display: block;
+    width: auto; height: auto;
+    max-width: 100%;
+    max-height: 52vh;
+    max-height: 52dvh;
+    border-radius: 10px;
+    box-shadow: 0 14px 30px -14px rgba(40, 25, 10, .55), 0 2px 6px rgba(40, 25, 10, .18);
+  }
+
+  h1 {
+    margin: 0;
+    font-family: "Fraunces", Georgia, "Times New Roman", serif;
+    font-weight: 600;
+    font-size: 1.9rem;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .subtitle {
+    margin: 6px 0 24px;
+    color: var(--muted);
+    font-size: 1rem;
+  }
+
+  /* Barra de progresso */
+  .seek {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 28px;
+    margin: 0;
+    background: transparent;
+    cursor: pointer;
+    --p: 0%;
+  }
+  .seek:disabled { cursor: default; opacity: .6; }
+  .seek::-webkit-slider-runnable-track {
+    height: 6px;
+    border-radius: 99px;
+    background: linear-gradient(to right, var(--accent) var(--p), var(--track) var(--p));
+  }
+  .seek::-moz-range-track {
+    height: 6px;
+    border-radius: 99px;
+    background: var(--track);
+  }
+  .seek::-moz-range-progress {
+    height: 6px;
+    border-radius: 99px;
+    background: var(--accent);
+  }
+  .seek::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px; height: 18px;
+    margin-top: -6px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 3px solid var(--card);
+    box-shadow: 0 1px 4px rgba(0,0,0,.25);
+  }
+  .seek::-moz-range-thumb {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 3px solid var(--card);
+    box-shadow: 0 1px 4px rgba(0,0,0,.25);
+  }
+  .seek:focus-visible { outline: none; }
+  .seek:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 6px var(--ring); }
+  .seek:focus-visible::-moz-range-thumb { box-shadow: 0 0 0 6px var(--ring); }
+
+  .times {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2px;
+    color: var(--muted);
+    font-size: .85rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Botões */
+  .controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 18px;
+  }
+  button {
+    font: inherit;
+    color: inherit;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  button:focus-visible { outline: none; box-shadow: 0 0 0 4px var(--ring); }
+
+  .skip {
+    position: relative;
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    display: grid; place-items: center;
+    color: var(--ink);
+  }
+  .skip:active { transform: scale(.94); }
+  .skip svg { width: 34px; height: 34px; }
+  .skip span {
+    position: absolute;
+    font-size: .62rem;
+    font-weight: 700;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -38%);
+  }
+
+  .play {
+    width: 84px; height: 84px;
+    border-radius: 50%;
+    display: grid; place-items: center;
+    background: var(--accent);
+    color: var(--accent-ink);
+    box-shadow: 0 10px 24px -10px var(--accent);
+    transition: transform .12s ease;
+  }
+  .play:active { transform: scale(.95); }
+  .play:disabled { opacity: .6; cursor: default; }
+  .play svg { width: 36px; height: 36px; }
+  .play .i-pause, .play .i-load { display: none; }
+  .play.is-playing .i-play { display: none; }
+  .play.is-playing .i-pause { display: block; }
+  .play.is-loading .i-play, .play.is-loading .i-pause { display: none; }
+  .play.is-loading .i-load { display: block; animation: spin 1s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .note {
+    min-height: 1.4em;
+    margin: 20px 0 0;
+    color: var(--muted);
+    font-size: .85rem;
+  }
+  .note.error { color: var(--accent); font-weight: 600; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .play, .skip { transition: none; }
+    .play.is-loading .i-load { animation-duration: 3s; }
+  }
+</style>
+</head>
+<body>
+
+<main class="player">
+  <figure class="cover">
+    <!-- Ilustração padrão. Quando existir um "capa.jpg" ao lado deste index.html, a foto da capa aparece no lugar. -->
+    <svg viewBox="0 0 400 400" aria-hidden="true">
+      <rect width="400" height="400" fill="var(--sky)"/>
+      <circle cx="200" cy="190" r="70" fill="var(--sun)" opacity=".9"/>
+      <circle cx="200" cy="190" r="100" fill="var(--sun)" opacity=".18"/>
+      <path d="M0 290 C 90 230, 170 250, 240 280 S 360 300, 400 260 L 400 400 L 0 400 Z" fill="var(--hill-1)"/>
+      <path d="M0 330 C 80 300, 160 320, 230 340 S 350 350, 400 320 L 400 400 L 0 400 Z" fill="var(--hill-2)"/>
+    </svg>
+    <img class="cover-photo" src="capa.jpg" alt="Capa do livro Meu Paraíso"
+         onload="this.parentNode.classList.add('has-photo')" onerror="this.remove()">
+  </figure>
+
+  <h1>Meu Paraíso</h1>
+  <p class="subtitle">Narração do livro</p>
+
+  <!-- Troque "narracao.mp3" se o seu arquivo tiver outro nome. -->
+  <audio id="audio" src="narracao.mp3" preload="metadata"></audio>
+
+  <input id="seek" class="seek" type="range" min="0" max="0" step="1" value="0"
+         aria-label="Posição da narração" disabled>
+  <div class="times">
+    <span id="current">0:00</span>
+    <span id="duration">--:--</span>
+  </div>
+
+  <div class="controls">
+    <button id="back" class="skip" type="button" aria-label="Voltar 15 segundos">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4.5h4.5"/>
+      </svg>
+      <span>15</span>
+    </button>
+
+    <button id="play" class="play" type="button" aria-label="Tocar">
+      <svg class="i-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>
+      <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1.2"/><rect x="14" y="5" width="4" height="14" rx="1.2"/></svg>
+      <svg class="i-load" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9"/></svg>
+    </button>
+
+    <button id="fwd" class="skip" type="button" aria-label="Avançar 15 segundos">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20 12a8 8 0 1 1-2.4-5.7"/><path d="M20 4v4.5h-4.5"/>
+      </svg>
+      <span>15</span>
+    </button>
+  </div>
+
+  <p id="note" class="note" role="status" aria-live="polite"></p>
+</main>
+
+<script>
+(function () {
+  var TITLE = 'Meu Paraíso';
+  var ARTIST = 'Narração do livro';
+  var STORAGE_KEY = 'meu-paraiso:posicao';
+  var SKIP = 15;
+
+  var audio = document.getElementById('audio');
+  var playBtn = document.getElementById('play');
+  var seek = document.getElementById('seek');
+  var cur = document.getElementById('current');
+  var dur = document.getElementById('duration');
+  var note = document.getElementById('note');
+  var dragging = false;
+  var lastSaved = 0;
+
+  function fmt(s) {
+    if (!isFinite(s) || s < 0) s = 0;
+    s = Math.floor(s);
+    var h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), sec = s % 60;
+    var mm = h ? String(m).padStart(2, '0') : String(m);
+    return (h ? h + ':' : '') + mm + ':' + String(sec).padStart(2, '0');
+  }
+
+  function say(text, isError) {
+    note.textContent = text || '';
+    note.classList.toggle('error', !!isError);
+  }
+
+  function paint(t) {
+    var d = audio.duration || 0;
+    var pct = d ? (t / d) * 100 : 0;
+    seek.style.setProperty('--p', pct + '%');
+    cur.textContent = fmt(t);
+  }
+
+  function render() {
+    if (dragging) return;
+    seek.value = audio.currentTime;
+    paint(audio.currentTime);
+  }
+
+  // Guardar a posição para continuar depois (funciona por aparelho).
+  function save(force) {
+    var now = Date.now();
+    if (!force && now - lastSaved < 4000) return;
+    lastSaved = now;
+    try { localStorage.setItem(STORAGE_KEY, String(Math.floor(audio.currentTime))); } catch (e) {}
+  }
+  function forget() {
+    try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+  }
+  function restore() {
+    var saved = 0;
+    try { saved = parseFloat(localStorage.getItem(STORAGE_KEY)) || 0; } catch (e) {}
+    if (saved > 5 && saved < audio.duration - 5) {
+      audio.currentTime = saved;
+      say('Continuando de onde você parou (' + fmt(saved) + ').');
+    }
+  }
+
+  function toggle() {
+    if (audio.paused) {
+      say('');
+      var p = audio.play();
+      if (p && p.catch) p.catch(function () {
+        playBtn.classList.remove('is-loading');
+        say('Não foi possível tocar o áudio. Tente de novo.', true);
+      });
+    } else {
+      audio.pause();
+    }
+  }
+
+  function skip(delta) {
+    if (!audio.duration) return;
+    audio.currentTime = Math.min(Math.max(audio.currentTime + delta, 0), audio.duration);
+    render();
+  }
+
+  playBtn.addEventListener('click', toggle);
+  document.getElementById('back').addEventListener('click', function () { skip(-SKIP); });
+  document.getElementById('fwd').addEventListener('click', function () { skip(SKIP); });
+
+  seek.addEventListener('input', function () {
+    dragging = true;
+    paint(+seek.value);
+  });
+  seek.addEventListener('change', function () {
+    audio.currentTime = +seek.value;
+    dragging = false;
+    save(true);
+  });
+
+  var ready = false;
+  function onMeta() {
+    if (!isFinite(audio.duration) || audio.duration <= 0) return;
+    seek.max = Math.floor(audio.duration);
+    seek.disabled = false;
+    dur.textContent = fmt(audio.duration);
+    if (!ready) { ready = true; restore(); }
+    render();
+  }
+  function onError() {
+    playBtn.classList.remove('is-playing', 'is-loading');
+    var code = audio.error && audio.error.code;
+    if (code === 2) {
+      say('Sem conexão com a internet. Verifique o sinal e recarregue a página.', true);
+    } else {
+      // Arquivo ainda não publicado (ou formato não suportado).
+      playBtn.disabled = true;
+      say('A narração estará disponível em breve.');
+    }
+  }
+
+  audio.addEventListener('loadedmetadata', onMeta);
+  audio.addEventListener('durationchange', onMeta);
+  audio.addEventListener('error', onError);
+  // O áudio pode ter carregado antes deste script rodar.
+  if (audio.readyState >= 1) onMeta();
+  if (audio.error) onError();
+  audio.addEventListener('timeupdate', function () { render(); save(false); });
+  audio.addEventListener('play', function () {
+    playBtn.classList.add('is-playing');
+    playBtn.setAttribute('aria-label', 'Pausar');
+  });
+  audio.addEventListener('pause', function () {
+    playBtn.classList.remove('is-playing', 'is-loading');
+    playBtn.setAttribute('aria-label', 'Tocar');
+    save(true);
+  });
+  audio.addEventListener('waiting', function () { playBtn.classList.add('is-loading'); });
+  audio.addEventListener('playing', function () { playBtn.classList.remove('is-loading'); });
+  audio.addEventListener('ended', function () {
+    forget();
+    audio.currentTime = 0;
+    render();
+    say('Fim da história. Toque para ouvir de novo.');
+  });
+
+  // Espaço liga/desliga quando nenhum controle está em foco.
+  document.addEventListener('keydown', function (e) {
+    if (e.code === 'Space' && e.target === document.body) { e.preventDefault(); toggle(); }
+  });
+
+  // Controles na tela de bloqueio e nos fones (celulares).
+  if ('mediaSession' in navigator) {
+    try {
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: TITLE,
+        artist: ARTIST,
+        artwork: [{ src: 'capa.jpg', sizes: '512x512', type: 'image/jpeg' }]
+      });
+    } catch (e) {}
+    var handlers = {
+      play: function () { audio.play(); },
+      pause: function () { audio.pause(); },
+      seekbackward: function () { skip(-SKIP); },
+      seekforward: function () { skip(SKIP); },
+      seekto: function (d) { if (d && d.seekTime != null) { audio.currentTime = d.seekTime; render(); } }
+    };
+    Object.keys(handlers).forEach(function (k) {
+      try { navigator.mediaSession.setActionHandler(k, handlers[k]); } catch (e) {}
+    });
+  }
+})();
+</script>
+</body>
+</html>
