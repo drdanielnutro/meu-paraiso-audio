@@ -15,7 +15,7 @@
 <link rel="apple-touch-icon" href="capa.jpg">
 <meta name="theme-color" content="#f6efe4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#1d1916" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23c8643b'/%3E%3Cpath d='M26 20l20 12-20 12z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%237a3a6f'/%3E%3Cpath d='M26 20l20 12-20 12z' fill='%23fff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Fontes carregadas sem travar a página; se a internet estiver lenta, usa as fontes do aparelho. -->
@@ -26,10 +26,10 @@
     --card: #fffaf2;
     --ink: #3a2f28;
     --muted: #7a6a5d;
-    --accent: #c8643b;
+    --accent: #7a3a6f;
     --accent-ink: #ffffff;
     --track: #eadfce;
-    --ring: rgba(200, 100, 59, .35);
+    --ring: rgba(122, 58, 111, .35);
     --sun: #f2b45a;
     --hill-1: #9cbf8a;
     --hill-2: #6f9c6a;
@@ -42,10 +42,10 @@
       --card: #27211d;
       --ink: #f3e9dc;
       --muted: #b4a594;
-      --accent: #e58a5f;
+      --accent: #d9a2cd;
       --accent-ink: #1d1916;
       --track: #3d342d;
-      --ring: rgba(229, 138, 95, .45);
+      --ring: rgba(217, 162, 205, .45);
       --sun: #e9a64b;
       --hill-1: #557a52;
       --hill-2: #3e5d3e;
@@ -286,11 +286,11 @@
   </div>
 
   <div class="controls">
-    <button id="back" class="skip" type="button" aria-label="Voltar 15 segundos">
+    <button id="back" class="skip" type="button" aria-label="Voltar 10 segundos">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4.5h4.5"/>
       </svg>
-      <span>15</span>
+      <span>10</span>
     </button>
 
     <button id="play" class="play" type="button" aria-label="Tocar">
@@ -299,11 +299,11 @@
       <svg class="i-load" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9"/></svg>
     </button>
 
-    <button id="fwd" class="skip" type="button" aria-label="Avançar 15 segundos">
+    <button id="fwd" class="skip" type="button" aria-label="Avançar 10 segundos">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M20 12a8 8 0 1 1-2.4-5.7"/><path d="M20 4v4.5h-4.5"/>
       </svg>
-      <span>15</span>
+      <span>10</span>
     </button>
   </div>
 
@@ -315,7 +315,7 @@
   var TITLE = 'Meu Paraíso';
   var ARTIST = 'Narração do livro';
   var STORAGE_KEY = 'meu-paraiso:posicao';
-  var SKIP = 15;
+  var SKIP = 10;
 
   var audio = document.getElementById('audio');
   var playBtn = document.getElementById('play');
